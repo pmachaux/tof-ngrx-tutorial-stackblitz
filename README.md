@@ -29,16 +29,6 @@ We want to maintain the concept of single source of truth. Therefore let's get r
      Remove the Message Service and replace its usage by dispatching the corresponding actions or using the selector.
      At the end of this step, from a user perspective, you must have the exact same behavior as before but under the hood we use NgRx
 
-3) Now let's be a bit more scalable and focus on separation of concern. Hero feature should not know anything about the message feature.
-Message feature is more something transverse that can be used in any feature.
-Let's use ngRx effects to help decouple our code: https://ngrx.io/guide/effects
-Effects are great to decouple things.
-For example a component of a feature that should not know about a service but this service needs to perform actions when something happen in that component.
-
-    STEP 1:
-     Create the write message effect for the fetch heroes.
-    STEP 2:
-     Replicate step 1 for all occurrences where hero dispatch the message action
 
 
 
