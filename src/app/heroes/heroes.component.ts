@@ -6,7 +6,7 @@ import {select, Store} from "@ngrx/store";
 import {AppState} from "../state/app.state";
 import {selectHeroes} from "../state/hero.selector";
 import {tap} from "rxjs/operators";
-import {setHeroes} from "../state/hero.action";
+import {addHero, deleteHero, setHeroes} from "../state/hero.action";
 import {Observable} from "rxjs";
 
 @Component({
@@ -27,21 +27,22 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes().pipe(
         tap(heroes => {
           this.store.dispatch(setHeroes({heroes}))
-        }))
+        })).subscribe();
   }
 
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
-      .subscribe(hero => {
-        // this.heroes.push(hero);
-      });
+    this.heroService.addHero({ name } as Hero).pipe(
+        tap(hero => this.store.dispatch(addHero({hero})))
+    )
+      .subscribe();
   }
 
   delete(hero: Hero): void {
-    // this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero).subscribe();
+    this.heroService.deleteHero(hero).pipe(
+        tap(() => this.store.dispatch(deleteHero({hero})))
+    ).subscribe();
   }
 
 }
