@@ -7,6 +7,6 @@ const initialHeroState: HeroState = {
 };
 
 
-const setUsers = on(setHeroes, (state: HeroState, action) => ({...state, heroes: action.heroes}));
+const setHeroesHandler = on(setHeroes, (state: HeroState, action) => ({...state, heroes: action.heroes}));
 
-export const heroReducer = createReducer(initialHeroState, setUsers);
+export const heroReducer = createReducer(initialHeroState, setHeroesHandler);
