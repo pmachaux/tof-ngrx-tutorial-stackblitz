@@ -1,5 +1,7 @@
 # Tour of heros + Ngrx tutorial
 
+Install https://github.com/zalmoxisus/redux-devtools-extension/
+
 Full code and solution at: https://github.com/pmachaux/tof-ngrx-tutorial-stackblitz
 Use documentation of Ngrx: https://ngrx.io/guide/store
 You can find solution of every step on the branch with matching name
@@ -8,8 +10,9 @@ You can find solution of every step on the branch with matching name
 We are going to use the Ngrx store to help us the logic out of there and create a more scalable and maintainable component
     STEP 1:
      After fetching the hero, add the list to the store and display the list from the store:
-        - create action and associated reducer action
-        - create the selector called by the component to display the list
+        - create action and associated reducer action (use https://next.ngrx.io/guide/store/actions and https://next.ngrx.io/guide/store/reducers)
+        - create the selector called by the component to display the list (use https://next.ngrx.io/guide/store/selectors)
+        - Update the dashboard component and heroes component
     
     STEP 2:
      Manage add and delete actions / reducers so the component does not care about this logic anymore.
