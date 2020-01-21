@@ -27,7 +27,7 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes().pipe(
         tap(heroes => {
           this.store.dispatch(setHeroes({heroes}))
-        })).subscribe();
+        })).subscribe()
   }
 
   add(name: string): void {
