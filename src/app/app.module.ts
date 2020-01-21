@@ -18,6 +18,7 @@ import {StoreModule} from "@ngrx/store";
 import {appReducer} from "./state/app.state";
 import {environment} from "../environments/environment";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {EffectsModule} from "@ngrx/effects";
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
+    EffectsModule.forRoot([]),
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
