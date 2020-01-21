@@ -5,8 +5,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
-import { MessageService } from './message.service';
-
+import {Store} from "@ngrx/store";
+import {AppState} from "./state/app.state";
+import {addMessage} from "./state/message.actions";
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
@@ -18,8 +19,7 @@ export class HeroService {
   };
 
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService) { }
+    private http: HttpClient, private store: Store<AppState>) { }
 
   /** GET heroes from the server */
   getHeroes (): Observable<Hero[]> {
@@ -116,6 +116,6 @@ export class HeroService {
 
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.store.dispatch(addMessage({message: `HeroService: ${message}`}));
   }
 }
