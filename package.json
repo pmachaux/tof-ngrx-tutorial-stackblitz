@@ -25,6 +25,7 @@
     "@angular/router": "^8.0.0",
     "@angular/upgrade": "^8.0.0",
     "@ngrx/store": "^8.6.0",
+    "@ngrx/store-devtools": "^8.6.0",
     "angular-in-memory-web-api": "^0.9.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.5.1",
